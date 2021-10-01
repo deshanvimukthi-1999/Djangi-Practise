@@ -26,16 +26,16 @@ class AuthViewSet(ViewSet):
             logger.info(f"User Registered : {user.role} (PK: {user.pk}) {user}")
             return Response(serializer.data, status=status.HTTP_200_OK)
 
-    @action(methods=['post'], detail=False, permission_classes=[], url_path='login', url_name='login')
-    def login(self, request):
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('home')
-        else:
-            return redirect('login')
+    # @action(methods=['post'], detail=False, permission_classes=[], url_path='login', url_name='login')
+    # def login(self, request):
+    #     username = request.POST['username']
+    #     password = request.POST['password']
+    #     user = authenticate(request, username=username, password=password)
+    #     if user is not None:
+    #         login(request, user)
+    #         return redirect('home')
+    #     else:
+    #         return redirect('login')
 
 
 class UserViewSet(ModelViewSet):
