@@ -41,16 +41,16 @@ class UserSerializer(serializers.ModelSerializer):
             'id', 'first_name', 'last_name', 'email', 'password', 'company', 'phone', 'role'
         ]
 
-    def create(self, validated_data):
-        try:
-            return create_user(validated_data)
-        except django.db.utils.IntegrityError:
-            raise django.db.utils.IntegrityError("User already exists. Please try Again.")
-
-    def update(self, instance, validated_data):
-        if 'password' in validated_data:
-            validated_data.pop('password')
-        if 'email' in validated_data:
-            validated_data['username'] = validated_data['email']
-        return super().update(instance, validated_data)
-
+    # def create(self, validated_data):
+    #     try:
+    #         return create_user(validated_data)
+    #     except django.db.utils.IntegrityError:
+    #         raise django.db.utils.IntegrityError("User already exists. Please try Again.")
+    #
+    # def update(self, instance, validated_data):
+    #     if 'password' in validated_data:
+    #         validated_data.pop('password')
+    #     if 'email' in validated_data:
+    #         validated_data['username'] = validated_data['email']
+    #     return super().update(instance, validated_data)
+    #
