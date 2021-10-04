@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="49104ee2-edc5-4f87-bfff-e5127d490c54" name="Changes" comment="">
+    <list default="true" id="49104ee2-edc5-4f87-bfff-e5127d490c54" name="Changes" comment="New Changes again">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/job/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/job/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/services.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,11 +92,45 @@
       <workItem from="1632993761935" duration="5215000" />
       <workItem from="1633061334720" duration="5946000" />
       <workItem from="1633076625522" duration="1098000" />
-      <workItem from="1633080407389" duration="3441000" />
+      <workItem from="1633080407389" duration="4103000" />
+      <workItem from="1633319587737" duration="214000" />
+      <workItem from="1633320154849" duration="3788000" />
     </task>
+    <task id="LOCAL-00001" summary="New Changes">
+      <created>1633088818365</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1633088818365</updated>
+    </task>
+    <task id="LOCAL-00002" summary="New Changes again">
+      <created>1633088846142</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1633088846143</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="New Changes" />
+    <MESSAGE value="New Changes again" />
+    <option name="LAST_COMMIT_MESSAGE" value="New Changes again" />
   </component>
 </project>

@@ -17,15 +17,6 @@ logger = logging.getLogger(__name__)
 
 class AuthViewSet(ViewSet):
 
-    @action(methods=['post'], detail=False, permission_classes=[], url_path='register', url_name='register')
-    def register(self, request):
-        serializer = AuthRegisterSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=True):
-            user = register_user(request.data)
-            serializer = UserSerializer(user)
-            logger.info(f"User Registered : {user.role} (PK: {user.pk}) {user}")
-            return Response(serializer.data, status=status.HTTP_200_OK)
-
     # @action(methods=['post'], detail=False, permission_classes=[], url_path='login', url_name='login')
     # def login(self, request):
     #     username = request.POST['username']
@@ -36,6 +27,13 @@ class AuthViewSet(ViewSet):
     #         return redirect('home')
     #     else:
     #         return redirect('login')
+
+    @action(methods=['post'], detail=False)
+    def register(self, request):
+        serializer = AuthRegisterSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class UserViewSet(ModelViewSet):
