@@ -7,38 +7,33 @@ from rest_framework.viewsets import ViewSet, ModelViewSet
 from apps.users.models import User
 from apps.users.serializers import AuthRegisterSerializer, UserSerializer
 import logging
+
+from apps.users.services import register_user, delete_user
+
 logger = logging.getLogger(__name__)
 
 
 class AuthViewSet(ViewSet):
 
-    # @action(methods=['post'], detail=False, permission_classes=[], url_path='login', url_name='login')
-    # def login(self, request):
-    #     username = request.POST['username']
-    #     password = request.POST['password']
-    #     user = authenticate(request, username=username, password=password)
-    #     if user is not None:
-    #         login(request, user)
-    #         return redirect('home')
-    #     else:
-    #         return redirect('login')
-
-    @action(methods=['post'], detail=False)
+    @action(methods=['post'], detail=False, permission_classes=[IsAdminUser], url_path='register', url_name='register')
     def register(self, request):
+        request.data["company"] = request.user.company
         serializer = AuthRegisterSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
-            serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+            user = register_user(request.data)
+            serializer = UserSerializer(user)
+            return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 class UserViewSet(ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-    def get_permissions(self):
-        if self.action == 'me':
-            permission_classes = [IsAuthenticated]
-        else:
-            permission_classes = [IsAuthenticated, IsAdminUser]
+    @action(methods=['get'], detail=False, permission_classes=[IsAuthenticated], url_path='me', url_name='me')
+    def me(self, request):
+        serializer = UserSerializer(request.user)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
-        return [permission() for permission in permission_classes]
+    def destroy(self, request, pk=None, *args, **kwargs):
+        delete_user(pk)
+        return Response({}, status=status.HTTP_204_NO_CONTENT)

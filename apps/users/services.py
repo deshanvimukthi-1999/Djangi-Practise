@@ -18,3 +18,10 @@ def register_user(data):
     user.save()
     return user
 
+
+def delete_user(user_id):
+    user: User = User.objects.get(pk=user_id)
+    user.is_active = False
+    user.save()
+
+    return user
