@@ -1,8 +1,7 @@
 from django.contrib.auth import get_user_model
-from django.template.backends import django
 from rest_framework import serializers
 
-from apps.users.models import Company, User
+from apps.users.models import Company
 
 
 def create_user(validated_data):
@@ -18,8 +17,7 @@ class AuthRegisterSerializer(serializers.Serializer):
     first_name = serializers.CharField(required=True)
     last_name = serializers.CharField(required=True)
     email = serializers.CharField(required=True)
-    company_type = serializers.ChoiceField(choices=CompanyTypes.choices,required=True)
-    company_name = serializers.CharField(required=False)
+    company = serializers.CharField(required=False)
     password = serializers.CharField(required=True)
     confirm_password = serializers.CharField(required=True)
 

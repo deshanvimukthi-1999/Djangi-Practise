@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="49104ee2-edc5-4f87-bfff-e5127d490c54" name="Changes" comment="New Changes again">
+    <list default="true" id="49104ee2-edc5-4f87-bfff-e5127d490c54" name="Changes" comment="New Changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/job/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/job/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +95,8 @@
       <workItem from="1633076625522" duration="1098000" />
       <workItem from="1633080407389" duration="4103000" />
       <workItem from="1633319587737" duration="214000" />
-      <workItem from="1633320154849" duration="3788000" />
+      <workItem from="1633320154849" duration="7837000" />
+      <workItem from="1633406142487" duration="600000" />
     </task>
     <task id="LOCAL-00001" summary="New Changes">
       <created>1633088818365</created>
@@ -110,7 +112,21 @@
       <option name="project" value="LOCAL" />
       <updated>1633088846143</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="New Changes">
+      <created>1633337427510</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1633337427510</updated>
+    </task>
+    <task id="LOCAL-00004" summary="New Changes">
+      <created>1633337497363</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1633337497363</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,8 +145,8 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="New Changes" />
     <MESSAGE value="New Changes again" />
-    <option name="LAST_COMMIT_MESSAGE" value="New Changes again" />
+    <MESSAGE value="New Changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="New Changes" />
   </component>
 </project>
