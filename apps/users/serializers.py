@@ -32,12 +32,11 @@ class CompanySerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
     email = serializers.CharField(write_only=True)
-    company = CompanySerializer(required=False)
 
     class Meta:
         model = get_user_model()
         fields = [
-            'id', 'first_name', 'last_name', 'email', 'password', 'company', 'phone', 'role'
+            'id', 'first_name', 'last_name', 'email', 'password'
         ]
 
     def update(self, instance, validated_data):

@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+AUTH_USER_MODEL = 'users.User'
 # Application definition
 
 INSTALLED_APPS = [
@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DATABASE_NAME', 'django'),
+        'NAME': os.environ.get('DATABASE_NAME', 'djangodb'),
         'USER': os.environ.get('DATABASE_USER', 'django'),
         'PASSWORD': os.environ.get('DATABASE_PWD', 'django'),
         'HOST': os.environ.get('DATABASE_HOST', 'localhost'),

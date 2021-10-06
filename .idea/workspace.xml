@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="49104ee2-edc5-4f87-bfff-e5127d490c54" name="Changes" comment="New Changes">
+    <list default="true" id="49104ee2-edc5-4f87-bfff-e5127d490c54" name="Changes" comment="New Changes again">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/job/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/job/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/job/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/job/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/services.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +58,29 @@
       <recent name="D:\Django-Job\project\apps" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Django Server.project">
+    <configuration name="urls" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/project" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/project/urls.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="project" type="Python.DjangoServer" factoryName="Django server">
       <module name="project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -79,6 +105,11 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.urls" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -96,7 +127,10 @@
       <workItem from="1633319587737" duration="214000" />
       <workItem from="1633320154849" duration="7837000" />
       <workItem from="1633406142487" duration="2163000" />
-      <workItem from="1633418290947" duration="1905000" />
+      <workItem from="1633418290947" duration="3390000" />
+      <workItem from="1633493112320" duration="3758000" />
+      <workItem from="1633512975766" duration="1875000" />
+      <workItem from="1633515073192" duration="3410000" />
     </task>
     <task id="LOCAL-00001" summary="New Changes">
       <created>1633088818365</created>
@@ -133,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633407142117</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="New Changes again">
+      <created>1633422438580</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1633422438580</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,8 +193,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="New Changes again" />
     <MESSAGE value="New Changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="New Changes" />
+    <MESSAGE value="New Changes again" />
+    <option name="LAST_COMMIT_MESSAGE" value="New Changes again" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/project$urls.coverage" NAME="urls Coverage Results" MODIFIED="1633518189190" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project" />
   </component>
 </project>

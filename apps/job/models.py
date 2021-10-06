@@ -33,8 +33,8 @@ class Interview(models.Model):
 
 class Candidate(models.Model):
     name = models.CharField(max_length=100)
-    nic = models.IntegerField(max_length=15)
-    contact_number = models.IntegerField(max_length=12)
+    nic = models.IntegerField()
+    contact_number = models.IntegerField()
     jobs = models.ManyToManyField(Job, related_name='candidates')
     company = models.ForeignKey(Company, related_name='candidates', on_delete=models.CASCADE)
 

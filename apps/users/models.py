@@ -7,8 +7,8 @@ import uuid
 class Company(models.Model):
     name = models.CharField(max_length=200)
     location = models.CharField(max_length=200)
-    number = models.IntegerField(max_length=12)
-    user = models.OneToOneField('User', related_name='owner', on_delete=models.CASCADE)
+    number = models.IntegerField()
+    owner = models.OneToOneField('users.User', related_name='managing_company', on_delete=models.CASCADE)
 
 
 class User(AbstractUser):
@@ -17,5 +17,5 @@ class User(AbstractUser):
     last_name = models.CharField(max_length=200)
     email = models.EmailField(max_length=254, blank=True)
     contact_no = models.CharField(max_length=12)
-    company = models.ForeignKey(Company, related_name='users', on_delete=models.DO_NOTHING, null=True, blank=True)
+    company = models.ForeignKey(Company, related_name='company_user', on_delete=models.DO_NOTHING, null=True, blank=True)
 
