@@ -35,6 +35,11 @@ class UserViewSet(ModelViewSet):
 
         return [permission() for permission in permission_classes]
 
+    @action(methods=['get'], detail=False, permission_classes=[IsAuthenticated], url_path='me', url_name='me')
+    def me(self, request):
+        serializer = UserSerializer(request.user)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
     def perform_destroy(self, instance):
         instance.is_active = False
         instance.save()
