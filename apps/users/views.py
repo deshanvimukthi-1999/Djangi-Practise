@@ -15,25 +15,26 @@ logger = logging.getLogger(__name__)
 
 class AuthViewSet(ViewSet):
 
-    @action(methods=['post'], detail=False, permission_classes=[IsAdminUser], url_path='register', url_name='register')
+    @action(methods=['post'], detail=False)
     def register(self, request):
-        request.data["company"] = request.user.company
         serializer = AuthRegisterSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
-            user = register_user(request.data)
-            serializer = UserSerializer(user)
-            return Response(serializer.data, status=status.HTTP_200_OK)
+            serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class UserViewSet(ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-    @action(methods=['get'], detail=False, permission_classes=[IsAuthenticated], url_path='me', url_name='me')
-    def me(self, request):
-        serializer = UserSerializer(request.user)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+    def get_permissions(self):
+        if self.action == 'me':
+            permission_classes = [IsAuthenticated]
+        else:
+            permission_classes = [IsAuthenticated, IsAdminUser]
 
-    def destroy(self, request, pk=None, *args, **kwargs):
-        delete_user(pk)
-        return Response({}, status=status.HTTP_204_NO_CONTENT)
+        return [permission() for permission in permission_classes]
+
+    def perform_destroy(self, instance):
+        instance.is_active = False
+        instance.save()
