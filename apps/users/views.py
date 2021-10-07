@@ -8,7 +8,6 @@ from apps.users.models import User
 from apps.users.serializers import AuthRegisterSerializer, UserSerializer
 import logging
 
-from apps.users.services import register_user, delete_user
 
 logger = logging.getLogger(__name__)
 
