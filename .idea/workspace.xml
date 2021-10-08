@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="49104ee2-edc5-4f87-bfff-e5127d490c54" name="Changes" comment="New Changes again">
+    <list default="true" id="49104ee2-edc5-4f87-bfff-e5127d490c54" name="Changes" comment="Add some details to Settings.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/job/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/job/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/job/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/job/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +52,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -126,7 +134,8 @@
       <workItem from="1633512975766" duration="1875000" />
       <workItem from="1633515073192" duration="4552000" />
       <workItem from="1633578433016" duration="5581000" />
-      <workItem from="1633596943014" duration="1833000" />
+      <workItem from="1633596943014" duration="3548000" />
+      <workItem from="1633664444771" duration="8771000" />
     </task>
     <task id="LOCAL-00001" summary="New Changes">
       <created>1633088818365</created>
@@ -198,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633596532947</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add some details to Settings.py">
+      <created>1633600513997</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1633600513997</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,7 +235,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="New Changes" />
     <MESSAGE value="New Changes again" />
-    <option name="LAST_COMMIT_MESSAGE" value="New Changes again" />
+    <MESSAGE value="Add some details to Settings.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add some details to Settings.py" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/project$urls.coverage" NAME="urls Coverage Results" MODIFIED="1633518189190" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project" />

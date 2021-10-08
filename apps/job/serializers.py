@@ -6,4 +6,4 @@ from apps.job.models import Job
 class JobSerializer(serializers.ModelSerializer):
     class Meta:
         model = Job
-        fields = '__all__'
+        exclude = ['company']
