@@ -8,10 +8,6 @@ from rest_framework.viewsets import ViewSet, ModelViewSet
 
 from apps.users.models import User
 from apps.users.serializers import UserSerializer, RegistrationSerializer
-import logging
-
-
-logger = logging.getLogger(__name__)
 
 
 class RegisterAPIView(generics.GenericAPIView):
@@ -27,7 +23,8 @@ class RegisterAPIView(generics.GenericAPIView):
             return Response({
                 "RequestId": str(uuid.uuid4()),
                 "message": "User created successfully",
-                "User": serializer.data}, status=status.HTTP_201_CREATED
+                "User": serializer.data},
+                status=status.HTTP_201_CREATED
             )
         return Response({"Errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
