@@ -9,5 +9,4 @@ class JobViewSet(viewsets.ModelViewSet):
     serializer_class = JobSerializer
 
     def perform_create(self, serializer):
-        serializer.save(company=self.request.company)
-
+        serializer.save(company=self.request.user.company)
