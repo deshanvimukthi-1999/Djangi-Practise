@@ -1,30 +1,26 @@
 from django.contrib.auth import get_user_model
+from django.template.backends import django
 from rest_framework import serializers
 
-from apps.users.models import Company, User
+from apps.users.models import Company
 
 
-class RegistrationSerializer(serializers.ModelSerializer):
-    email = serializers.EmailField(max_length=50)
-    username = serializers.CharField(max_length=50)
-    password = serializers.CharField(max_length=150, write_only=True)
+def create_user(validated_data):
+    validated_data.pop('confirm_password')
+    validated_data['username'] = validated_data['email']
+    instance = get_user_model().objects.create(**validated_data)
+    instance.set_password(validated_data['password'])
+    instance.save()
+    return instance
 
-    class Meta:
-        model = User
-        fields = ('first_name', 'last_name', 'email', 'username', 'password')
 
-    def validate(self, args):
-        email = args.get('email', None)
-        username = args.get('username', None)
-        if User.objects.filter(email=email).exists():
-            raise serializers.ValidationError({'Email': ' email already exits '})
-        if User.objects.filter(username=username).exists():
-            raise serializers.ValidationError({'username': ' username already exits '})
-
-        return super().validate(args)
-
-    def create(self, validated_data):
-        return User.objects.create_user(**validated_data)
+class AuthRegisterSerializer(serializers.Serializer):
+    first_name = serializers.CharField(required=True)
+    last_name = serializers.CharField(required=True)
+    email = serializers.CharField(required=True)
+    company = serializers.CharField(required=False)
+    password = serializers.CharField(required=True)
+    confirm_password = serializers.CharField(required=True)
 
 
 class CompanySerializer(serializers.ModelSerializer):
@@ -43,4 +39,12 @@ class UserSerializer(serializers.ModelSerializer):
             'id', 'first_name', 'last_name', 'email', 'password'
         ]
 
+    def update(self, instance, validated_data):
+        if "password" in validated_data:
+            password = validated_data.pop("password")
+            instance.set_password(password)
 
+        if "email" in validated_data:
+            instance.username = validated_data["email"]
+
+        return super().update(instance, validated_data)

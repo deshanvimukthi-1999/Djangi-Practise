@@ -1,32 +1,25 @@
-import uuid
-
-from rest_framework import status, generics
+from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet, ModelViewSet
 
 from apps.users.models import User
-from apps.users.serializers import UserSerializer, RegistrationSerializer
+from apps.users.serializers import AuthRegisterSerializer, UserSerializer
+import logging
 
 
-class RegisterAPIView(generics.GenericAPIView):
-    serializer_class = RegistrationSerializer
+logger = logging.getLogger(__name__)
 
-    def post(self, request):
-        serializer = self.get_serializer(data = request.data)
-        # serializer.is_valid(raise_exception= True)
-        # serializer.save()
 
-        if serializer.is_valid():
+class AuthViewSet(ViewSet):
+
+    @action(methods=['post'], detail=False)
+    def register(self, request):
+        serializer = AuthRegisterSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
             serializer.save()
-            return Response({
-                "RequestId": str(uuid.uuid4()),
-                "message": "User created successfully",
-                "User": serializer.data},
-                status=status.HTTP_201_CREATED
-            )
-        return Response({"Errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class UserViewSet(ModelViewSet):
