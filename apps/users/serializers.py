@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
-from apps.users.models import Company
+from apps.users.models import Company, User
 
 
 class AuthRegisterSerializer(serializers.Serializer):
@@ -27,12 +27,10 @@ class UserSerializer(serializers.ModelSerializer):
             'id', 'first_name', 'last_name', 'email', 'password'
         ]
 
-    def update(self, instance, validated_data):
-        if "password" in validated_data:
-            password = validated_data.pop("password")
-            instance.set_password(password)
 
-        if "email" in validated_data:
-            instance.username = validated_data["email"]
-
-        return super().update(instance, validated_data)
+class UserUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        exclude = [
+            'id', 'first_name', 'last_name', 'email', 'password'
+        ]

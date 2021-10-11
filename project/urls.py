@@ -7,7 +7,8 @@ from rest_framework_simplejwt.views import (
 from rest_framework.routers import DefaultRouter
 from apps.users.views import AuthViewSet, UserViewSet
 from apps.job.views import JobViewSet
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 router = DefaultRouter()
 router.register('auth', AuthViewSet, basename='auth')
@@ -22,7 +23,7 @@ urlpatterns = [
     path('api/auth/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
 
-#
-# if settings.DEBUG:
-#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

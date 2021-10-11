@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet, ModelViewSet
 
 from apps.users.models import User
-from apps.users.serializers import AuthRegisterSerializer, UserSerializer
+from apps.users.serializers import AuthRegisterSerializer, UserSerializer, UserUpdateSerializer
 
 from apps.users.services import register_user, delete_user
 
@@ -23,8 +23,13 @@ class AuthViewSet(ViewSet):
 
 
 class UserViewSet(ModelViewSet):
-    queryset = User.objects.all()
     serializer_class = UserSerializer
+
+    def get_serializer_class(self):
+        if self.request.method == 'PUT':
+            return UserUpdateSerializer
+        else:
+            return UserSerializer
 
     @action(methods=['get'], detail=False, permission_classes=[IsAuthenticated], url_path='me', url_name='me')
     def me(self, request):

@@ -10,7 +10,9 @@ def register_user(data):
         first_name=data['first_name'],
         last_name=data['last_name'],
         name=name,
+        nic=data['nic'],
         email=data['email'],
+        contact_no=data['contact_no'],
     )
     user.set_password(data['password'])
     user.save()
