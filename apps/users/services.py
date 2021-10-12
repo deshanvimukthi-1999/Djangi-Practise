@@ -3,24 +3,25 @@ from apps.users.models import Company, User
 
 def register_user(data):
 
+    # create company for registered user
+    company = Company.objects.create()
+
     # user registration logic goes here
     user = User(
         username=data['email'],
         first_name=data['first_name'],
         last_name=data['last_name'],
         email=data['email'],
+        company=company
 
     )
     user.set_password(data['password'])
-    user.save()
 
-    # create company for registered user
-    company = Company(type=data['company_type'])
-    company.name = data.get('company_name', None)
-    company.save()
+    user.save()
 
     # Set company owner
     company.owner = user
+
     company.save()
 
     return user
