@@ -6,7 +6,7 @@ from rest_framework_simplejwt.views import (
 )
 from rest_framework.routers import DefaultRouter
 from apps.users.views import AuthViewSet, UserViewSet
-from apps.job.views import JobViewSet
+from apps.job.views import JobViewSet, CandidateViewSet
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -14,6 +14,7 @@ router = DefaultRouter()
 router.register('auth', AuthViewSet, basename='auth')
 router.register('users', UserViewSet, basename='users')
 router.register('job', JobViewSet, basename='job')
+router.register('candidate', CandidateViewSet, basename='candidate')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

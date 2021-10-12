@@ -42,8 +42,7 @@ class Candidate(models.Model):
     nic = models.IntegerField()
     contact_number = models.IntegerField()
     jobs = models.ManyToManyField(Job, related_name='candidates')
-    company = models.ForeignKey(
-        Company, related_name='candidates', on_delete=models.CASCADE)
+    company = models.ForeignKey(Company, related_name='candidates', on_delete=models.CASCADE)
 
 
 class Experience(models.Model):
