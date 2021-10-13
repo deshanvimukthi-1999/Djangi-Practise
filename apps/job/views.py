@@ -3,6 +3,7 @@ from rest_framework import status, viewsets
 from apps.job.models import Job, Candidate
 from apps.job.serializers import CandidateSerializer, JobSerializer
 from requests.models import Response
+from apps.users.models import Company
 
 
 class JobViewSet(viewsets.ModelViewSet):
@@ -17,14 +18,29 @@ class CandidateViewSet(viewsets.ModelViewSet):
     queryset = Candidate.objects.all()
     serializer_class = CandidateSerializer
 
-    # def create_candidate(self, data):
-    #     candidate = Candidate(
-    #         name=data['name'],
-    #         nic=data['nic'],
-    #         contact_number=data['contact_number']
-    #     )
-    #     candidate.save()
-    #     return candidate
+    def create_candidate(self, data):
+
+        # create company for candidate
+        company = Company.objects.create()
+
+        # create job for candidate
+        job = job.objects.create()
+
+        candidate = Candidate(
+            first_name=data['first_name'],
+            last_name=data['last_name'],
+            email=data['email'],
+            phone=data['phone'],
+            workplace=data['workplace'],
+            role=data['role']
+        )
+        candidate.save()
+
+        # set jobs to company
+        job.company = candidate
+        company.save()
+
+        return candidate
 
     def get(self, request, format=None):
         candidate = Candidate.objects.all().order_by('id')

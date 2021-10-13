@@ -8,7 +8,8 @@ class JobSerializer(serializers.ModelSerializer):
         model = Job
         exclude = ['company']
 
+
 class CandidateSerializer(serializers.ModelSerializer):
     class Meta:
-        model =  Candidate
-        fields = '__all__'
+        model = Candidate
+        exclude = ['company', 'cv', 'jobs']

@@ -38,11 +38,16 @@ class Interview(models.Model):
 
 
 class Candidate(models.Model):
-    name = models.CharField(max_length=100)
-    nic = models.IntegerField()
-    contact_number = models.IntegerField()
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField(null=True, blank=True)
+    cv = models.FilePathField(null=True, blank=True)
+    phone = models.IntegerField(null=True, blank=True)
+    workplace = models.TextField(null=True, blank=True)
+    role = models.TextField(null=True, blank=True)
     jobs = models.ManyToManyField(Job, related_name='candidates')
-    company = models.ForeignKey(Company, related_name='candidates', on_delete=models.CASCADE)
+    company = models.ForeignKey(
+        'users.Company', related_name='candidates', on_delete=models.CASCADE)
 
 
 class Experience(models.Model):
