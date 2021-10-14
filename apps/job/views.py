@@ -4,6 +4,9 @@ from apps.job.models import Job, Candidate
 from apps.job.serializers import CandidateSerializer, JobSerializer
 from requests.models import Response
 from apps.users.models import Company
+from django.shortcuts import get_object_or_404
+from apps.job.services import add_candidate_to_job
+from rest_framework.decorators import action
 
 
 class JobViewSet(viewsets.ModelViewSet):
@@ -18,29 +21,25 @@ class CandidateViewSet(viewsets.ModelViewSet):
     queryset = Candidate.objects.all()
     serializer_class = CandidateSerializer
 
-    def create_candidate(self, data):
+    @action(
+        methods=['get', 'post'],
+        detail=False,
+        # url_path='(?P<pk>[^/.]+)/candidates',
+    )
+    def candidates(self, request, job_id):
+        job = get_object_or_404(self.request.user.company.jobs, pk=job_id)
+        company = self.request.user.company
 
-        # create company for candidate
-        company = Company.objects.create()
+        if request.method == 'GET':
+            serializer = CandidateSerializer(job.candidates, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
 
-        # create job for candidate
-        job = job.objects.create()
+        if request.method == 'POST':
+            data = add_candidate_to_job(
+                request.data, job, request.user, company)
+            return Response(data, status=status.HTTP_201_CREATED)
 
-        candidate = Candidate(
-            first_name=data['first_name'],
-            last_name=data['last_name'],
-            email=data['email'],
-            phone=data['phone'],
-            workplace=data['workplace'],
-            role=data['role']
-        )
-        candidate.save()
-
-        # set jobs to company
-        job.company = candidate
-        company.save()
-
-        return candidate
+        return Response({}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
     def get(self, request, format=None):
         candidate = Candidate.objects.all().order_by('id')
