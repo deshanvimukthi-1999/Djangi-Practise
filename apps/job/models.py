@@ -45,7 +45,8 @@ class Candidate(models.Model):
     workplace = models.TextField(null=True, blank=True)
     role = models.TextField(null=True, blank=True)
     jobs = models.ManyToManyField(Job, related_name='candidates')
-    company = models.ForeignKey('users.Company', related_name='candidates', on_delete=models.CASCADE)
+    company = models.ForeignKey(
+        'users.Company', related_name='candidates', on_delete=models.CASCADE)
 
 
 class Experience(models.Model):

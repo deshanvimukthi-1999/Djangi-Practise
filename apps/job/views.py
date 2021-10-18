@@ -15,22 +15,25 @@ class JobViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(company=self.request.user.company)
 
-    @action(
-        methods=['get', 'post'],
-        detail=False,
-        url_path='(?P<job_id>[^/.]+)/candidates',
-    )
-    def add_candidates(self, request, job_id):
-        job = get_object_or_404(self.request.user.company.jobs, pk=job_id)
+    # @action(
+    #     methods=['get', 'post'],
+    #     detail=False,
+    #     url_path='(?P<job_id>[^/.]+)/candidates',
+    # )
+    # def add_candidates(self, request, job_id):
+    #     job = get_object_or_404(self.request.user.company.jobs, pk=job_id)
 
-        if request.method == 'GET':
-            serializer = CandidateSerializer(job.candidates, many=True)
-            return Response(serializer.data, status=status.HTTP_200_OK)
+    #     if request.method == 'GET':
+    #         serializer = CandidateSerializer(job.candidates, many=True)
+    #         return Response(serializer.data, status=status.HTTP_200_OK)
 
-        if request.method == 'POST':
-            serializer.save(company=self.request.candidate.company)
+    #     if request.method == 'POST':
+    #         serializer.save(candidate=self.request.company.candidate)
 
 
 class CandidateViewSet(viewsets.ModelViewSet):
     queryset = Candidate.objects.all()
     serializer_class = CandidateSerializer
+
+    def perform_create(self, serializer):
+        candidate = serializer.save(company=self.request.user.company)
