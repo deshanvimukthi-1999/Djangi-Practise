@@ -6,7 +6,6 @@ from requests.models import Response
 from apps.users.models import Company
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import action
-from apps.job.services import add_candidate
 
 
 class JobViewSet(viewsets.ModelViewSet):
@@ -29,11 +28,7 @@ class JobViewSet(viewsets.ModelViewSet):
             return Response(serializer.data, status=status.HTTP_200_OK)
 
         if request.method == 'POST':
-            serializer = JobSerializer(data=request.data)
-            if serializer.is_valid(raise_exception=True):
-                candidate = add_candidate(request.data)
-                serializer = CandidateSerializer(candidate)
-                return Response(serializer.data, status=status.HTTP_200_OK)
+            serializer.save(company=self.request.candidate.company)
 
 
 class CandidateViewSet(viewsets.ModelViewSet):
