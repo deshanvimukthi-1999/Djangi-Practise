@@ -41,7 +41,6 @@ class Candidate(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField(null=True, blank=True)
-    cv = models.FilePathField(null=True, blank=True)
     phone = models.IntegerField(null=True, blank=True)
     workplace = models.TextField(null=True, blank=True)
     role = models.TextField(null=True, blank=True)

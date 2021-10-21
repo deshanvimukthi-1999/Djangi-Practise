@@ -1,23 +1,31 @@
-from apps.job.models import Candidate
-from django.shortcuts import get_object_or_404
-from apps.users.models import User
-from apps.job.serializers import CandidateSerializer
-from uuid import UUID
-from django.core.exceptions import ValidationError
+
+# from apps.users.models import Company
+# from apps.job.models import Candidate
 
 
-def add_candidate_to_job(request_data, job, user, compnay):
-    valid_data = []
-    invalid_data = []
+# def add_candidate(data):
 
-    for candidate in request_data['candidates']:
-        data = [{'candidate': candidate, 'job': job.id}]
-        candidate_obj = Candidate.objects.get(pk=candidate)
-        if candidate_obj.company == user.company:
-            valid_data.append(data)
-            serializer = CandidateSerializer(data=data, many=True)
-            if serializer.is_valid(raise_exception=True):
-                candidateships = serializer.save()
+#     # create company for candidate
+#     company = Company.objects.create()
 
-        else:
-            invalid_data.append(data)
+#     # create candidate logic goes here
+#     candidate = Candidate(
+#         first_name=data['first_name'],
+#         last_name=data['last_name'],
+#         email=data['email'],
+#         phone=data['phone'],
+#         workplace=data['workplace'],
+#         role=data['role'],
+#         job=company.job,
+#         company=company
+
+#     )
+
+#     candidate.save()
+
+#     # Set company job to candidate
+#     company.job = candidate
+
+#     company.save()
+
+#     return candidate
