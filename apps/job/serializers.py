@@ -13,3 +13,7 @@ class CandidateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Candidate
         exclude = ['company', 'jobs']
+
+class JobCandidateSerializer(serializers.Serializer):
+    new_candidate = serializers.PrimaryKeyRelatedField(queryset=Candidate.objects.all())
+

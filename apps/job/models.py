@@ -8,6 +8,7 @@ class Job(models.Model):
     company = models.ForeignKey(
         Company, related_name='jobs', on_delete=models.CASCADE)
 
+    
 
 class Section(models.Model):
     name = models.CharField(max_length=200)

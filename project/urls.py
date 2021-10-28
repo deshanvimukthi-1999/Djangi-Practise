@@ -13,8 +13,8 @@ from django.conf.urls.static import static
 router = DefaultRouter()
 router.register('auth', AuthViewSet, basename='auth')
 router.register('users', UserViewSet, basename='users')
-router.register('jobs', JobViewSet, basename='job')
-router.register('candidates', CandidateViewSet, basename='candidate')
+router.register('jobs', JobViewSet, basename='jobs')
+router.register('candidates', CandidateViewSet, basename='candidates')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
