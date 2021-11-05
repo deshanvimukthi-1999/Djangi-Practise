@@ -1,14 +1,13 @@
 from rest_framework import status, viewsets
 
 from apps.job.models import Job, Candidate
-from apps.job.serializers import CandidateSerializer,  JobSerializer, JobCandidateSerializer
+from apps.job.serializers import CandidateSerializer,  JobSerializer
 from rest_framework.response import Response
 from apps.users.models import Company
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import action
 # from apps.job.services import add_candidates_to_job
 from apps import job
-
 
 
 class JobViewSet(viewsets.ModelViewSet):
@@ -32,19 +31,10 @@ class JobViewSet(viewsets.ModelViewSet):
             return Response(serializer.data, status=status.HTTP_200_OK)
 
         if request.method == 'POST':
-            # serializer = JobCandidateSerializer(data=request.data)
-            # if serializer.is_valid(raise_exception=True):
-            #     serializer.validated_data['candidates'].jobs.add(job)
-            # return Response(serializer.data, status=status.HTTP_201_CREATED)
-            
-            candidate_list = []
-
-            serializer = CandidateSerializer(data=request.data)
-            if serializer.is_valid(raise_exception=True):
-                for candidate in candidate_list:
-                    candidate_list['candidate'] = candidate
-                    job.add(candidate)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            candidate_id = request.data['id']
+            candidate = Candidate.objects.get(id=candidate_id)
+            job.candidates.add(candidate)
+            return Response(request.data, status=status.HTTP_201_CREATED)
 
 
 class CandidateViewSet(viewsets.ModelViewSet):

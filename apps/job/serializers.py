@@ -15,5 +15,5 @@ class CandidateSerializer(serializers.ModelSerializer):
         exclude = ['company', 'jobs']
 
 
-class JobCandidateSerializer(serializers.Serializer):
-    candidates = serializers.PrimaryKeyRelatedField(queryset=Candidate.objects.values_list('id', flat=True))
+# class JobCandidateSerializer(serializers.Serializer):
+#     candidates = serializers.PrimaryKeyRelatedField(queryset=Candidate.objects.values_list('id', flat=True))
