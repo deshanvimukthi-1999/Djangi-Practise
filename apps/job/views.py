@@ -31,10 +31,11 @@ class JobViewSet(viewsets.ModelViewSet):
             return Response(serializer.data, status=status.HTTP_200_OK)
 
         if request.method == 'POST':
-            candidate_id = request.data['id']
+            candidate_id = request.data['candidate_id']
             candidate = Candidate.objects.get(id=candidate_id)
             job.candidates.add(candidate)
-            return Response(request.data, status=status.HTTP_201_CREATED)
+            candidate_serializer = CandidateSerializer(job.candidates.all(),many=True)
+            return Response(candidate_serializer.data, status=status.HTTP_201_CREATED)
 
 
 class CandidateViewSet(viewsets.ModelViewSet):
